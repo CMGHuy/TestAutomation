@@ -10,16 +10,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class OpenTextAutomation implements CommandLineRunner {
 
     @Autowired
-    private ReadURL readURL;
+    private ReadBrowsingHistory readBrowsingHistory;
 
     @Autowired
     private RunOpenText runOpenText;
-
-    @Value("${file.report.path}")
-    private String fileHistoryLocation;
-
-    @Value("${file.script.path}")
-    private String fileBrowsingHistoryViewLocation;
 
     private String openTextURL;
 
@@ -29,9 +23,9 @@ public class OpenTextAutomation implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        readURL.createBrowsingHistory(fileBrowsingHistoryViewLocation);
+        readBrowsingHistory.createBrowsingHistory();
         Thread.sleep(2000);
-        openTextURL = readURL.getLink("youtube", fileHistoryLocation);
+        openTextURL = readBrowsingHistory.getLink("youtube");
         Thread.sleep(2000);
         runOpenText.openOpenTextWindow(openTextURL);
         Thread.sleep(2000);

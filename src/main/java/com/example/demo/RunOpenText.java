@@ -29,7 +29,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElemen
 @Component
 public class RunOpenText {
 
-	private static final Logger LOG = LoggerFactory.getLogger(ReadURL.class);
+	private static final Logger LOG = LoggerFactory.getLogger(ReadBrowsingHistory.class);
 
 	@Value("${file.web.driver.chrome.path}")
 	private String fileChromeDriver;
